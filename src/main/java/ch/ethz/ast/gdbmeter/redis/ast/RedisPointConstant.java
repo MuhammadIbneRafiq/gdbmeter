@@ -1,6 +1,7 @@
 package ch.ethz.ast.gdbmeter.redis.ast;
 
 import ch.ethz.ast.gdbmeter.cypher.ast.CypherConstant;
+import java.util.Locale;
 
 public class RedisPointConstant extends CypherConstant {
 
@@ -14,6 +15,6 @@ public class RedisPointConstant extends CypherConstant {
 
     @Override
     public String getTextRepresentation() {
-        return String.format("point({ longitude: %f, latitude: %f })", longitude, latitude);
+        return String.format(Locale.US, "point({ longitude: %f, latitude: %f })", longitude, latitude);
     }
 }

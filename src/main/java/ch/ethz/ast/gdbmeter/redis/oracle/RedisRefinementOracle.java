@@ -20,6 +20,7 @@ import redis.clients.jedis.graph.entities.Property;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 
@@ -125,7 +126,7 @@ public class RedisRefinementOracle implements Oracle {
                             // See: https://github.com/RedisGraph/RedisGraph/issues/2417
 
                             Double refinedValue = (Double) value;
-                            expectedConstant = new CypherConstant.StringConstant(String.format("%f", refinedValue));
+                            expectedConstant = new CypherConstant.StringConstant(String.format(Locale.US, "%f", refinedValue));
                             CypherVariablePropertyAccess access = new CypherVariablePropertyAccess(String.format("n%d.%s", current, key));
                             CypherFunctionCall<RedisType> functionCall = new CypherFunctionCall<>(RedisFunction.TO_STRING, new CypherExpression[]{access});
 

@@ -1,6 +1,7 @@
 package ch.ethz.ast.gdbmeter.neo4j.ast;
 
 import ch.ethz.ast.gdbmeter.cypher.ast.CypherConstant;
+import java.util.Locale;
 
 public class Neo4JPointConstant extends CypherConstant {
 
@@ -21,9 +22,9 @@ public class Neo4JPointConstant extends CypherConstant {
     @Override
     public String getTextRepresentation() {
         if (z == null) {
-            return String.format("point({ x: %f, y: %f })", this.x, this.y);
+            return String.format(Locale.US, "point({ x: %f, y: %f })", this.x, this.y);
         } else {
-            return String.format("point({ x: %f, y: %f, z: %f })", this.x, this.y, this.z);
+            return String.format(Locale.US, "point({ x: %f, y: %f, z: %f })", this.x, this.y, this.z);
         }
     }
 }
